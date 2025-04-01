@@ -10,20 +10,20 @@ pipeline {
 
         stage('Setup JDK & Gradle') {
             steps {
-                sh 'java -version'  // Verify Java version (should be 17)
-                sh 'chmod +x gradlew'  // Ensure Gradle wrapper is executable
+                bat 'java -version'  // Verify Java version (should be 17)
+                bat 'chmod +x gradlew'  // Ensure Gradle wrapper is executable
             }
         }
 
         stage('Build APK') {
             steps {
-                sh './gradlew assembleDebug'
+                bat './gradlew assembleDebug'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh './gradlew test'
+                bat './gradlew test'
             }
         }
 
