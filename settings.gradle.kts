@@ -8,4 +8,4 @@
  */
 
 rootProject.name = "MobileApplication"
-include("app")
+include(":app")
