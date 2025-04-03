@@ -20,11 +20,6 @@ pipeline {
             }
         }
 
-        stage('Accept Licenses') {
-            steps {
-                bat 'yes | "%ANDROID_HOME%\\cmdline-tools\\latest\\bin\\sdkmanager.bat" --licenses'
-            }
-        }
 
         stage('Build APK') {
             steps {
