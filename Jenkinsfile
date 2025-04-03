@@ -11,25 +11,25 @@ pipeline {
         stage('Setup JDK & Gradle') {
             steps {
                 bat 'java -version'  // Verify Java version (should be 17)
-                bat 'chmod +x gradlew'  // Ensure Gradle wrapper is executable
+                bat 'gradlew.bat --version'  // Verify Gradle version
             }
         }
 
         stage('Build APK') {
             steps {
-                bat './gradlew assembleDebug'
+                bat 'gradlew.bat assembleDebug'  // Use Windows format
             }
         }
 
         stage('Run Tests') {
             steps {
-                bat './gradlew test'
+                bat 'gradlew.bat test'
             }
         }
 
         stage('Upload APK') {
             steps {
-                archiveArtifacts artifacts: 'app/build/outputs/apk/debug/*.apk', fingerprint: true
+                archiveArtifacts artifacts: 'app\\build\\outputs\\apk\\debug\\*.apk', fingerprint: true
             }
         }
     }
