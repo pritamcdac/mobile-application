@@ -17,7 +17,7 @@ pipeline {
 
         stage('Build APK') {
             steps {
-                bat 'gradlew.bat assembleDebug'  // Use Windows format
+                bat 'gradlew.bat :app:assembleDebug'  // Use Windows format
             }
         }
 
